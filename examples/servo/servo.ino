@@ -41,8 +41,9 @@ void setup() {
   pwm.begin();
   
   pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
-
+  #ifdef __AVR__
   yield();
+  #endif
 }
 
 // you can use this function if you'd like to set the pulse length in seconds
@@ -76,5 +77,5 @@ void loop() {
   delay(500);
 
   servonum ++;
-  if (servonum > 7) servonum = 0;
+  if (servonum > 15) servonum = 0;
 }
